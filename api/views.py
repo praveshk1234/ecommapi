@@ -54,8 +54,7 @@ registeruser = UserRegister.as_view()
 class RetrieveProductAPI(generics.RetrieveAPIView):
     queryset=Product.objects.all()
     serializer_class = ProductDetailSerializer
-    authentication_classes=[TokenAuthentication]
-    permission_classes=[IsAuthenticated]
+   
     lookup_field = 'pk'
     
     
