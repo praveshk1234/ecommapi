@@ -13,7 +13,20 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes,authentication_classes
 from rest_framework.response import Response
 # Create your views here.
-
+@api_view(['GET'])
+def index(request):
+    context = {
+        "products":"Get all the product list",
+        'auth/':"POST/  get token using username and password using body parameter",
+        'register/':"Post/ username email password and password2 as parameter",
+        "product/<pk>/":" GET/ product-detail ",
+        'products/':"product-list",
+        'placeorder/<int:pk>/':"place-order  with unit",
+        'product/create/':" Create the product",
+        'product/<int:pk>/delete/': "DELETE/ product-delete",
+        'orderdetail/':" GET/ order_summary",
+    }
+    return Response(context)
 class ProductListAPI(generics.ListCreateAPIView):
     queryset= Product.objects.all()
     serializer_class=ProductListSerializer

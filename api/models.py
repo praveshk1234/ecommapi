@@ -1,3 +1,4 @@
+from email.policy import default
 from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
@@ -17,7 +18,7 @@ class Product(models.Model):
         (Female,'Female')
     ]
     name=models.CharField(max_length=40,blank=True,null=True)
-    image=models.ImageField(upload_to="images/",blank=True,null=True)
+    image=models.ImageField(upload_to="images/",blank=True,default="images/default.jpg")
     desc= models.TextField(blank=True,null=True)
     price= models.IntegerField(blank=True,default=0)
     unit=models.IntegerField(blank=True,default=0)
